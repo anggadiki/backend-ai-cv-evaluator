@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // bisa diganti PostgreSQL di real case
+  url      = "file:./dev.db"
+}
+
+model Candidate {
+  id        String   @id @default(uuid())
+  name      String?
+  email     String?
+  files     File[]
+  evaluations Evaluation[]
+  createdAt DateTime @default(now())
+}
+
+model File {
+  id          String   @id @default(uuid())
+  candidate   Candidate @relation(fields: [candidateId], references: [id])
+  candidateId String
+  type        String   // "cv" | "project"
+  filename    String
+  path        String
+  uploadedAt  DateTime @default(now())
+}
+
+model Evaluation {
+  id          String   @id @default(uuid())
+  candidate   Candidate @relation(fields: [candidateId], references: [id])
+  candidateId String
+  status      String   @default("queued")
+  result      Json?
+  createdAt   DateTime @default(now())
+}
+
+model JobData {
+  id        String   @id @default(uuid())
+  type      String   // "job" | "rubric"
+  content   String
+  createdAt DateTime @default(now())
+}
