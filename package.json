@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "bullmq": "^5.58.9",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "ioredis": "^5.8.0",
+    "multer": "^2.0.2",
+    "openai": "^5.23.1"
+  },
+  "name": "backend-ai-cv-evaluator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "worker": "nodemon src/queue/worker.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
