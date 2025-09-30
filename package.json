@@ -6,8 +6,10 @@
     "express": "^5.1.0",
     "ioredis": "^5.8.0",
     "multer": "^2.0.2",
+    "node-fetch": "^3.3.2",
     "nodemon": "^3.1.10",
-    "openai": "^5.23.1"
+    "openai": "^5.23.1",
+    "pdfjs-dist": "^4.10.38"
   },
   "name": "backend-ai-cv-evaluator",
   "version": "1.0.0",
